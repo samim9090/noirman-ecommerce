@@ -20,6 +20,9 @@ connectDB();
 
 const app = express();
 
+// Trust reverse proxy (needed for Render to send secure cookies)
+app.set('trust proxy', 1);
+
 // CORS — allow frontend
 app.use(cors({
     origin: process.env.FRONTEND_URL || 'http://localhost:5173',
